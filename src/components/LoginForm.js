@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import firebase from 'firebase';
 import { Button, Card, CardItem, Input } from './common';
 
 class LoginForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: ''
+            email: '',
+            password: ''
         };
+    }
+
+    onButtonPress() {
+        const { email, password } = this.state;
+        firebase.auth().signInWithEmailAndPassword(email, password);
     }
 
     render() {
@@ -20,10 +27,19 @@ class LoginForm extends Component {
                         onChangeText={text => this.setState({ email: text })}
                     />
                 </CardItem>
-                <CardItem />
+                <CardItem>
+                    <Input
+                        placeholder="password"
+                        label="Password"
+                        value={this.state.password}
+                        secureTextEntry
+                        onChangeText={password => this.setState({ password })}
+
+                    />
+                </CardItem>
 
                 <CardItem>
-                    <Button>
+                    <Button onPress={this.onButtonPress.bind(this)}>
                         Login
                     </Button>
                 </CardItem>
