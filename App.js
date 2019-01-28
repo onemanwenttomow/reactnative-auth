@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Constants } from 'expo';
 import * as firebase from 'firebase';
+import secrets from './secrets.json';
 import { Header, Button, Spinner, CardItem } from './src/components/common';
 import LoginForm from './src/components/LoginForm';
 
@@ -14,9 +14,7 @@ export default class App extends React.Component {
     }
 
     componentWillMount() {
-        firebase.initializeApp(Constants.manifest.extra.firebaseConfig);
-        console.log(Constants.manifest.extra.firebaseConfig);
-
+        firebase.initializeApp(secrets.firebaseConfig);
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.setState({ loggedIn: true });
