@@ -24,6 +24,16 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "extra": {
+        "firebaseConfig": {
+            "apiKey": "AIzaSyCLOXFDDhI718cjzQll3n6ZGBfU1qg6-ao",
+            "authDomain": "auth-8353f.firebaseapp.com",
+            "databaseURL": "https://auth-8353f.firebaseio.com",
+            "projectId": "auth-8353f",
+            "storageBucket": "auth-8353f.appspot.com",
+            "messagingSenderId": "887191476915"
+        }
     }
   }
 }
